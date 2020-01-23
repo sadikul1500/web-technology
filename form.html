@@ -1,0 +1,44 @@
+<html lang="en>
+	<head>
+		<title>Form Building</title>
+	</head>
+	<body>
+		<form action="localhost/test.php" method="post">
+			First Name: <input type="text" name="fname" required placeholder="enter your name" autofocus/><br/>
+			Age: <input type="number" name="age" value="30" required disabled/>
+			Email: <input type="email" name="publicEmail" placeholder="enter your email" />
+			</br>			
+			<select name="board">
+				<option>Dhaka</option>
+				<option>Rajshahi</option>
+				<option selected>Khulna</option>
+				<option>Cumilla</option>
+				<option>Rangpur</option>
+			</select>
+			</br></br>Are you done? <input type="checkbox" name="isready" />
+			</br>Gender
+			<input type="radio" name="sex" /> Male
+			<input type="radio" name="sex" /> Female
+			<input type="radio" name="sex" /> others
+			</br></br>
+			About Yourself:
+			<textarea rows="10" cols="50"  wrap= "physical" placeholder="Write something about yourself.."></textarea>
+			<!--wrap="physical" new line soho jabe-->
+			<!--wrap="virtual" new line bade jabe-->
+			</br>
+
+			
+			<input type="file" />
+			</br>
+			<input type="date" /></br>
+			<input type="datetime-local"></br>
+			<input type="color" /><br>
+			<input type="button" value="Button" />
+			<progress value="18" max="100"> </progress></br>
+			<meter value="43" max="100"> </meter></br>
+            
+            <input type="reset" />
+			
+		</form>
+	</body>
+</html>
