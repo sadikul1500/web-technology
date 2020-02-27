@@ -1,0 +1,30 @@
+h1{
+    color:red;
+    font-size:40px;
+}
+
+/*div{
+    text-align: center;
+    color: blue;
+}
+
+#myDiv{
+    color: gray;
+}
+*/
+.text-red{
+    color: red;
+    background-color: black;
+}
+
+.text-large{
+    font-size: 30pt;
+}
+
+.text-small-green{
+    font-size: 10pt;
+    color: green;
+}
+.par-large{
+    font-size: 50pt;
+}
