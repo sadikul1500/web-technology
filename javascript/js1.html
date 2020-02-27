@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>
+            Html  js class
+        </title>
+        <!--
+           <script src="alert.js">
+            
+        </script>
+        -->
+    </head>
+    <body>
+       
+        <script>
+            var x = '132', y = 20, i=0;
+            var str = '';
+            var z = x + y;
+            
+            function printHello()
+            {
+                alert('hello world')
+            }
+            function add(a, b)
+            {
+                return a + b;
+            }
+            printHello();
+            alert('sum ' + add(3,4))
+            
+            while(i<11)
+                {
+                    if(i == 2)
+                    {
+                        i = i+1;
+                        continue;
+                    }
+                    if (i > 5) break;
+                    str = str + i + ',';  
+                    i = i+1;
+                 }
+            alert(str)
+            //alert(z)
+            /*if(x%2 === '0')
+                {
+                    alert('even')
+                }
+            else
+                alert('odd')
+        */
+        </script>
+        
+    </body>
+</html>
