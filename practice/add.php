@@ -1,4 +1,6 @@
 <?php 
+	include 'config/db_connect.php';
+
 	$email = $title = $casts = '';
 	$errors = array('email' => '', 'casts' => '', 'title' => '');
 	
@@ -45,6 +47,32 @@
 			else{
 				echo htmlspecialchars($_POST['casts']).'<br>';
 			}
+			
+		}
+
+		if(array_filter($errors))
+		{
+			echo 'form is invalid<br>';
+		}
+		else
+		{
+			$email = mysqli_real_escape_string($conn, $email);
+			$title = mysqli_real_escape_string($conn, $title);
+			$casts = mysqli_real_escape_string($conn, $casts);
+
+			$sql = "insert into dramas(title, email, casts) values('$title', '$email', '$casts')";
+			//echo 'form is valid<br>';
+
+			if(mysqli_query($conn, $sql))
+			{
+				header('Location: index.php'); //redirect to another page
+			}
+			else
+			{
+				echo 'query error: ' . mysqli_error($conn);
+			}
+
+
 			
 		}
 		
