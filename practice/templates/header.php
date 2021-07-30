@@ -13,10 +13,10 @@
 <body>
 	<nav>
 		<div>
-			<a href="#">Koren Drama</a>
+			<a href="index.php">Koren Drama</a>
 			<ul>
 				<li>
-					<a href="#">Add a drama</a>
+					<a href="add.php">Add a drama</a>
 				</li>
 			</ul>
 		</div>
