@@ -12,7 +12,7 @@ function addMarkers(){
 
 	var map = new google.maps.Map(document.getElementById('googleMap'), {
        mapTypeId: google.maps.MapTypeId.ROADMAP,
-	   zoom:4,
+	   zoom:6,
 	   center: {lat: 42.3601, lng: -71.0589},
 	   mapId: "4c4d3ce235aea6cf"
     });
@@ -29,6 +29,7 @@ function addMarkers(){
 	
 	for(var i=0; i<loc.length; i++){
 		var tLatLong = new google.maps.LatLng(loc[i][0], loc[i][1]);
+		var radius = loc[i][3] * 1000
 		var cityCircle = new google.maps.Circle({
 			strokeColor: "#FF0000",
 			strokeOpacity: 0.8,
@@ -37,16 +38,18 @@ function addMarkers(){
 			fillOpacity: Math.max(0.1, loc[i][3]*.01),//.35
 			map,
 			center: tLatLong, //citymap[city].center,
-			radius: loc[i][3] * 1000,
+			radius: radius,
 		});
 		
-		/*var dots = loc[i][3];
+		var dots = loc[i][3];
 		//var increment = .0001;
 		var tlat = loc[i][0];
 		var tlong = loc[i][1];
-		for(var j=0; j<dots; j++){
+		var j = 0;
+		while(j<=dots){
+		//for(var j=0; j<dots; j++){
 			var clat, clong;
-			var rand = Math.random() * .0001;
+			var rand = Math.random() * .001;
 			if(j%4==0){
 				clat = tlat + rand;
 				cong = tlong + rand;
@@ -67,14 +70,19 @@ function addMarkers(){
 				clong = tlong - rand;
 			
 			}
-			var tLatLong = new google.maps.LatLng(clat, clong);
-			var marker = new google.maps.Marker({
-				position: tLatLong,
-				//icon: 'Hnet38.png',
-				map: map
-			});
+			var checkPoint = {lat:clat, lng:clong};
+			if(arePointsNear(checkPoint, {lat:tlat, lng:tlong}, radius)){
+				var marker = new google.maps.Marker({
+					position: checkPoint,
+					icon: 'Hnet16.png',
+					map: map
+				});
+				j++;
+				//alert(j);
+			}
+			//j++;
 			
-		}*/
+		}
 	}
 	
 }
@@ -83,8 +91,10 @@ function addMarkers(){
 function arePointsNear(checkPoint, centerPoint, km) {
   var ky = 40000 / 360;
   var kx = Math.cos(Math.PI * centerPoint.lat / 180.0) * ky;
-  var dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
-  var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
+  var dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx || 0;
+  var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky || 0;
+  //console.log(km);
+  //alert(dx.toString() + " " + dy.toString()+" "+Math.sqrt(dx * dx + dy * dy).toString() + " " + km.toString());
   return Math.sqrt(dx * dx + dy * dy) <= km;
 }
 
