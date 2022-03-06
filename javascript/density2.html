@@ -24,23 +24,27 @@ function addMarkers(){
 	
 	var loc = [[42.93923187,-75.62004852, 'NewYork', 50],[64.14451599, -152.2798309, 'Alaska', 15],
 		[37.25466919, -119.6172791, 'California', 6], [38.89206314, -77.01991272, 'Washington', 11],
-		[32.76642609, -86.84033203, 'Alabama', 12], [34.29322815, -111.6645966, 'Arizona', 85]];
+		[32.76642609, -86.84033203, 'Alabama', 12], [34.29322815, -111.6645966, 'Arizona', 85],
+		[28.59551239, -82.48734283, 'Florida', 120], [32.64828873, -83.44437408, 'Georgia', 7],
+		[19.61087608, -155.5274963, 'Hawaii', 48], [44.38907242, -114.6593704, 'Idaho', 450],
+		[44.87479782, -85.73097992, 'Michigan', 230], [38.99855042, -105.5478363, 'Colorado', 123],
+		[42.07465744, -93.50006104, 'Iowa', 100], [38.9527359, -76.70129395, 'Maryland', 77]];
 	
 	
 	for(var i=0; i<loc.length; i++){
 		var tLatLong = new google.maps.LatLng(loc[i][0], loc[i][1]);
-		var radius = loc[i][3] * 1000
+		var radius = loc[i][3] * 700
 		
-		var cityCircle = new google.maps.Circle({
+		/*var cityCircle = new google.maps.Circle({
 			strokeColor: "#FF0000",
-			strokeOpacity: loc[i][3]*.01,
+			strokeOpacity: loc[i][3]*.009,
 			strokeWeight: 2,
 			fillColor: "#FF0000",
 			fillOpacity: Math.max(0.1, loc[i][3]*.01),//.35
 			map,
 			center: tLatLong, //citymap[city].center,
 			radius: radius,
-		});
+		});*/
 		
 		var tlat = loc[i][0];
 		var tlng = loc[i][1];
@@ -49,18 +53,18 @@ function addMarkers(){
 		var coords = [];
 		var xArray = []; //lng
 		var yArray = []; // lat
-		var increment = loc[i][3]*.001;
+		var increment = loc[i][3]*.005;
 		
-		for(var j= 0; j<4; j++){
+		for(var j= 1; j<=4; j++){
 			var clat=tlat, clng=tlng;
 			if(j%4 == 0){
 				clat = tlat + increment;
 			}
 			else if(j%4 == 1){
-				clat = tlat - increment;
+				clng = tlng + increment;
 			}
 			else if(j%4 == 2){
-				clng = tlng + increment;
+				clat = tlat - increment;
 			}
 			else{
 				clng = tlng - increment;
@@ -72,13 +76,14 @@ function addMarkers(){
 			bounds.extend(latlng);
 		}
 		
+		//coords.push(coords[1]);
 		polygon = new google.maps.Polygon({
 			paths: coords,
 			strokeColor: "#000000",
 			strokeOpacity: .01,
 			strokeWeight: 01,
-			fillColor: "#cccccc",
-			fillOpacity: .1
+			fillColor: "red",
+			fillOpacity: Math.max(loc[i][3]*.005, .59),
 		});
 
 		polygon.center = bounds.getCenter();
@@ -98,7 +103,7 @@ function addMarkers(){
 
 			if(pnpoly(4, xArray, yArray, testX, testY) == 1){  //
 				var mlatlng = new google.maps.LatLng(testY, testX); //
-				var marker = new google.maps.Marker({ position: mlatlng, icon: "Hnet38.png", map: map });   //
+				var marker = new google.maps.Marker({ position: mlatlng, icon: "Hnet13.png", map: map });   //
 				j++;
 			}
 		}
