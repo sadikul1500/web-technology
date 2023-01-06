@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="center-content">
+        <table class="spread-columns">
+            <tr>
+                <th></th>
+                <th>Add a new Tourist Place</th>
+                <th></th>
+            </tr>
+            <form action="">
+                <tr class="line_height">
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name"></td>
+                    <td></td>
+                </tr>
+                <tr class="line_height">
+                    <td><label for="address">Address:</label></td>
+                    <td><input type="text" id="address"></td>
+                    <td></td>
+                </tr>
+                <tr class="line_height">
+                    <td><label for="rating">Rating:</label></td>
+                    <td><input type="number" id="rating" min="1" max="5"placeholder="1"></td>
+                    <td class="red_text">Range 1 to 5</td>
+                </tr>
+                <tr class="line_height">
+                    <td><label for="type">Type:</label></td>
+                    <td><input type="text" id="type"></td>
+                    <td class="small-text" id="start">
+                        Beach<br>Hills<br>Fountain<br>Landmark
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="picture">Picture:</label></td>
+                    <td>
+                        <input type="file" name="picture" accept=".jpg,.png" value="Browse.." multiple class="my-image-input">
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="right-align">
+                        <button type="button" value="submit" class="custom-button" id="submit-button">Submit</button>
+                        <button type="button" value="reset" class="custom-button" id="reset-button">Reset</button>                      
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="right-align">
+                        <a href="listPage.html" class="small-text">Back to Tourist Place List</a>                    
+                    </td>
+                    <td></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+    
+</body>
+</html>

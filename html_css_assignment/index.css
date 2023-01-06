@@ -1,0 +1,92 @@
+.red_text{
+    color: red;
+    font-weight: 900;
+    font-size: 11px;
+}
+.my-image-input {
+    border: 1px solid red;
+    width: 300px;
+}
+input{
+    border-radius: 5px;
+    width: 300px;
+    height: 20px;
+    padding: 5px;
+    background-color:rgb(204, 204, 204);
+    border: 1px solid black;
+}
+.small-text{
+    font-size: 9px;
+}
+.list-table{
+    margin-top: 10px;
+    border: 2px solid black;
+}
+table{
+    border: 1px solid black;
+}
+th{
+    font-weight: bolder;
+}
+
+.center-content{    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);;
+    
+}
+.spread-columns{
+    border-spacing: 15px;
+    border: 1px solid black;
+}
+#submit-button{
+    background-color: rgb(40, 158, 40);
+}
+#reset-button{
+    background-color: orange;
+}
+#update-button{
+    background-color: rgb(62, 62, 197);
+}
+#create-button{
+    background-color: rgb(62, 62, 197);
+    margin: 10px 0 0 0;
+}
+#delete-button{
+    background-color: rgb(208, 66, 66);
+}
+.custom-button{
+    height: 35px;
+    min-width: 60px;
+    border-radius: 5px;
+    border: 1px none;
+    margin: 0 5px;
+    color: white;
+}
+.right-align{
+    text-align: right;
+}
+.list-tr{
+    text-align: center;
+}
+.list-tr:nth-of-type(odd){
+    background-color: rgb(204, 204, 204);
+
+}
+tr.list-tr td{
+    min-width: 180px;
+}
+img{
+    display: block;
+    max-width:250px;
+    max-height:100px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+tr#table-header{
+    background-color: black;
+    color: white;
+    font-weight: 900;
+}
